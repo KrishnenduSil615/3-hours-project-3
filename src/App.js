@@ -21,7 +21,7 @@ function App() {
         {fromIsShown && <BookmarkForm onHideBookMark={hideBookMarkHandler}/>}
       </div>
       <h1>All Bookmark</h1>
-      <BookMarkList/>
+      <BookMarkList  onClick={showBookMarkHandler}/>
     </BookMarkProvider>
   );
 }

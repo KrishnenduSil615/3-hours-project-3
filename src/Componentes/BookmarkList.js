@@ -4,20 +4,23 @@ const BookMarkList = props => {
     const bookMarkctx = useContext(BookmarkContext)
 
     const bookMarkRemoveHandler = (id) => {
+        bookMarkctx.removeBookmark(id)
     }
-    const bookMarkEditHandler = (id) => {
+    const bookMarkEditHandler = (item) => {
+        bookMarkctx.editBookmark(item)
+        props.onClick()
     }
     console.log(bookMarkctx)
     return (
         < ul >
             {bookMarkctx.bookmark.map((item) => (
-               
-            <li key={item.id}>
-                {item.bookMarTtitle} {item.urlName}
-                <button onClick={bookMarkRemoveHandler.bind(null, item.id)}>Delete</button>
-                <button onClick={bookMarkEditHandler.bind(null, item.id)}>Edit</button>
-            </li>
-            
+
+                <li key={item.id}>
+                    {item.bookMarkTtitle} {">"} <a href={item.urlName} target="_blank">{item.urlName}</a>
+                    <button onClick={bookMarkRemoveHandler.bind(null, item.id)}>Delete</button>
+                    <button onClick={bookMarkEditHandler.bind(null, item)}>Edit</button>
+                </li>
+
             )
             )}
         </ul >

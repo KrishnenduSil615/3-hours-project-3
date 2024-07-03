@@ -4,7 +4,10 @@ const BookmarkContext = React.createContext({
     bookmark: [],
     addBookmark: (item) => {},
     editBookmark: (id) => {},
-    removeBookmark: (id) => {}
+    removeBookmark: (id) => {},
+    editedBookmark: (id) => {},
+    updateBookmark: (id) => {},
+    resetEditBookmark: (id) => {},
 })
 
 export default BookmarkContext;
